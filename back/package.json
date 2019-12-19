@@ -1,0 +1,36 @@
+{
+  "name": "file_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "sDev": "cross-env NODE_ENV=production nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bukomp/WebRTC-2.0.git"
+  },
+  "author": "Edvard Shalaev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bukomp/WebRTC-2.0/issues"
+  },
+  "homepage": "https://github.com/bukomp/WebRTC-2.0#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cross-env": "^6.0.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.7",
+    "nodemailer": "^6.3.1",
+    "nodemon": "^1.19.4"
+  }
+}
