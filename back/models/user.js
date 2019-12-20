@@ -2,11 +2,29 @@ const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
   dateOfRegistration: Date,
+  username: {
+    type: String,
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
   email: {
-    address: String,
+    address: {
+      type: String,
+      required: true
+    },
     verified: Boolean
   },
-  password: String,
+  password: {
+    type: String,
+    required: true
+  },
+  spaceAccess: {
+    type: Number,
+    required: true
+  },
   files: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -24,7 +42,7 @@ const userSchema = mongoose.Schema({
 userSchema.set('toJSON', { // rObj = object that being returned
   transform: (document, rObj) => {
     rObj.id = rObj._id.toString();
-    delete password;
+    delete rObj.password;
     delete rObj._id;
     delete rObj.__v;
   }

@@ -1,6 +1,6 @@
-const app = require('./app')
-const PORT = require('./utils/config').PORT
-const config = require('./utils/config')
+const app = require('./app');
+const PORT = require('./utils/config').PORT;
+const config = require('./utils/config');
 
 let server;
 
@@ -11,18 +11,18 @@ if (!config.DEV) {
   })
 } else {
   server = require('http').createServer(app.app);
-  const io = require('socket.io')(server);
-  require('./utils/io')(io);
+  //const io = require('socket.io')(server);
+  //require('./utils/io')(io);
 }
 
 const secureServer = require('https').createServer(app.credentials, app.app);
-const ioS = require('socket.io')(secureServer);
-require('./utils/io')(ioS);
+//const ioS = require('socket.io')(secureServer);
+//require('./utils/io')(ioS);
 
 server.listen(PORT.http, () => {
-  console.log(`Web redirection server running on port: ${PORT.http}`)
+  console.log(`Web ${(!config.DEV)?'redirection ':""}server running on port: ${PORT.http}`)
 });
 
-secureServer.listen(PORT.https, () => {
+if (!config.DEV) secureServer.listen(PORT.https, () => {
   console.log(`Web server running on port: ${PORT.https}`)
 });

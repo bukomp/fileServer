@@ -1,1 +1,16 @@
+
+
+
+
+
 .idea
+
+#back-end
+back/node_modules
+back/.env
+
+#front-end
+front/build
+front/node_modules
+front/coverage
+front/origgitignore
